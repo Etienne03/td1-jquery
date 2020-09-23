@@ -1,28 +1,33 @@
-$( document ).ready(function() {
+$(document).ready(function () {
 
     var numero = 0;
 
 
-    $( ".Add" ).click(function( event ) {
+    $(".Add").click(function () {
 
-        var objet=$('#item').val();
+        var objet = $('#item').val();
 
-        $('#item').val("");
+        if (objet != "") {
 
-        $(".liste").addClass("jumbotron")
+            $('#item').val("");
 
-        $("ul").append('<li  class="list-group-item mx-auto justify-content-between" style="width: 18rem;" id=objet' + numero +'>' + objet + " <button type='button' class='delete btn btn-danger' id =" + numero + ">" + 'effacer </button>' + '</li>');
+            $(".liste").addClass("jumbotron")
 
-        numero++;
+            $("ul").append('<li  class="list-group-item mx-auto pt-3 pl-4 d-flex justify-content-between" style="width: 18rem;" id=objet' + numero + '>' + objet + " <button type='button' class='delete btn btn-danger justify-content-end' id =" + numero + ">" + 'effacer </button>' + '</li>');
 
-        $("#compteur").empty();
+            numero++;
 
-        $("#compteur").append(numero);
+            $("#compteur").empty();
+
+            $("#compteur").append(numero);
+        }
+        else
+            alert("Vous devez remplir le champ")
 
 
     });
 
-    $( document ).on("click", ".delete", function(){
+    $(document).on("click", ".delete", function () {
 
         var id = $(this).attr('id');
         console.log("Vous avez cliqué sur le bouton : " + id);
@@ -35,7 +40,7 @@ $( document ).ready(function() {
 
         $("#compteur").append(numero);
 
-        if (numero == 0){
+        if (numero == 0) {
             $(".liste").removeClass("jumbotron")
 
         }
