@@ -1,3 +1,5 @@
+var $ = jQuery;
+
 $(document).ready(function () {
 
     var numero = 0;
@@ -5,9 +7,9 @@ $(document).ready(function () {
 
     $(".Add").click(function () {
 
-        var objet = $('#item').val();
+        let objet = $('#item').val();
 
-        if (objet != "") {
+        if (objet !== '') {
 
             $('#item').val("");
 
@@ -29,8 +31,8 @@ $(document).ready(function () {
 
     $(document).on("click", ".delete", function () {
 
-        var id = $(this).attr('id');
-        console.log("Vous avez cliqué sur le bouton : " + id);
+        let id = $(this).attr('id');
+        console.log('Vous avez cliqué sur le bouton : ' + id);
 
         $("#objet" + id).remove();
 
@@ -40,7 +42,7 @@ $(document).ready(function () {
 
         $("#compteur").append(numero);
 
-        if (numero == 0) {
+        if (numero === 0) {
             $(".liste").removeClass("jumbotron")
 
         }
